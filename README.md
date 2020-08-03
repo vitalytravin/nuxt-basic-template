@@ -18,3 +18,18 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Сonfigured as
+
+npx create-nuxt-app nuxt-basic-template
+1. Typescript
+2. Npm
+3. Vuetify.js
+4. Axios, Content
+5. Eslint, Prettier, StyleLint
+6. Jest
+7. SPA
+8. Static
+9. jsconfig.json
+
+
