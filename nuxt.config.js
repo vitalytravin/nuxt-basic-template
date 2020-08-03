@@ -60,6 +60,9 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'nuxt-material-design-icons',
+    '@nuxtjs/auth',
+    '@nuxtjs/toast',
   ],
   /*
    ** Axios module configuration
