@@ -29,6 +29,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  serverMiddleware: [
+    '~/api/auth'
+  ],
   /*
    ** Global CSS
    */
@@ -74,6 +77,33 @@ export default {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {},
+
+  auth: {
+    redirect: {
+      login: '/signup',
+      // logout: '/',
+      // callback: '/login',
+      // home: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token.accessToken' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get', propertyName: 'user' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer',
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+    }
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

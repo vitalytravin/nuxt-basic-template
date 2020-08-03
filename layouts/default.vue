@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -37,6 +37,13 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <template v-if="$auth.loggedIn">
+        <v-toolbar-title v-text="$auth.user.name" />
+        <v-btn text @click.stop="$auth.logout()">Logout</v-btn>
+      </template>
+      <template v-else>
+        <v-btn text to="/signup">Login</v-btn>
+      </template>  
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -81,6 +88,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire',
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Signup',
+          to: '/signup',
         },
       ],
       miniVariant: false,

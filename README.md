@@ -33,7 +33,7 @@ npx create-nuxt-app nuxt-basic-template
 9. jsconfig.json
 
 
-Added configuration for correct display of sources during debugging:
+1. Added configuration for correct display of sources during debugging:
 ```
 build: {
     extend(config, ctx) {
@@ -44,5 +44,9 @@ build: {
     }
   }
 ```
+
+2. Configurated auth nuxt module with test auth server (api/auth.js)
+
+
 
 
