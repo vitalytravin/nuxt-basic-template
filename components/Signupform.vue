@@ -9,7 +9,7 @@
               <v-row class="">
                 <v-col cols="12" md="8" class="pt-6 pb-6">
                   <v-card-text>
-                    <v-form class="signup-form-form" @submit.prevent="signin">
+                    <v-form class="signup-form-form" @submit.prevent="$emit('signin',{login,password})">
                       <h1
                         class="text-center display-1 mb-10"
                         :class="`${bgColor}--text`"
@@ -99,7 +99,7 @@
                     >
                       Sign Up
                     </h1>
-                    <v-form class="signup-form-form" @submit.prevent="signup">
+                    <v-form class="signup-form-form" @submit.prevent="$emit('signup',{username,email,password})">
                       <v-text-field
                         id="username"
                         v-model="username"
@@ -206,16 +206,6 @@ export default {
       default: 'white'
     }
   },
-  async fetch({ store, error }, user) {
-    try {
-      await store.dispatch('users/signupUser', user)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to sign up user. Please try again later.'
-      })
-    }
-  },
   data: () => ({
     step: 1,
     username: '',
@@ -223,38 +213,7 @@ export default {
     password: '',
     login: '',
   }),
-  methods: {
-    signup() {
-      this.$auth
-        .signup({
-          data: {
-            user: {
-              username: this.username,
-              email: this.email,
-              password: this.password
-            }
-          }
-        })
-        .catch((e) => {
-          this.error = e + ''
-        })
-    },
-    async signin() {
-      try {
-        const response = await this.$auth.loginWith('local', {
-          data: {
-            login: this.login,
-            password: this.password
-          }
-        })
-      } catch (err) {
-        this.$toast.error('Error while authenticating',{
-          position:'bottom-center',
-          duration: 5000
-          })
-      }
-    }
-  }
+  
 }
 </script>
 
