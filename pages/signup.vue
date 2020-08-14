@@ -1,5 +1,5 @@
 <template>
-  <signupform @signup="signup($event)" @signin="signin($event)" />
+  <signupform @onSignup="signup($event)" @onSignin="signin($event)" />
 </template>
 
 <script>
