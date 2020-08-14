@@ -5,16 +5,6 @@
 <script>
 export default {
   layout:"empty",
-  async fetch({ store, error }, user) {
-    try {
-      await store.dispatch('users/signupUser', user)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to sign up user. Please try again later.'
-      })
-    }
-  },
   methods: {
     signup(signupData) {
       this.$auth
