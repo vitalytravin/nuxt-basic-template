@@ -9,9 +9,9 @@
               <v-row class="">
                 <v-col cols="12" md="8" class="pt-6 pb-6">
                   <v-card-text>
-                    <v-form class="signup-form-form" @submit.prevent="$emit('signin',{login,password})">
+                    <v-form class="signup-form-form" @submit.prevent="$emit('onSignin',{login,password})">
                       <h1
-                        class="text-center display-1 mb-10"
+                        class="text-center display-1 mb-10" style="display:block; margin:0"
                         :class="`${bgColor}--text`"
                       >
                         Sign in
@@ -36,7 +36,6 @@
                       />
                       <div class="text-center">
                         <a
-                          href="#"
                           class="mt-3 overline no-text-decoration"
                           :class="`${bgColor}--text`"
                           @click="step = 3"
@@ -60,7 +59,7 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3">No User?</h1>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">No User?</h1>
                       <h5 class="text-center overline mb-3">
                         Please Sign Up to continue
                       </h5>
@@ -83,7 +82,7 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3">Already a user?</h1>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">Already a user?</h1>
                       <h5 class="text-center overline mb-3">Please Sign In</h5>
                     </v-card-text>
                     <div class="text-center mb-6">
@@ -96,10 +95,11 @@
                     <h1
                       class="text-center display-1 mb-10"
                       :class="`${bgColor}--text`"
+                      style="display:block; margin:0"
                     >
                       Sign Up
                     </h1>
-                    <v-form class="signup-form-form" @submit.prevent="$emit('signup',{username,email,password})">
+                    <v-form class="signup-form-form" @submit.prevent="$emit('onSignup',{username,email,password})">
                       <v-text-field
                         id="username"
                         v-model="username"
@@ -145,7 +145,7 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3">Already a user?</h1>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">Already a user?</h1>
                       <h5 class="text-center overline mb-3">Please Sign In</h5>
                     </v-card-text>
                     <div class="text-center mb-6">
@@ -159,6 +159,7 @@
                       <h1
                         class="text-center display-1 mb-10"
                         :class="`${bgColor}--text`"
+                        style="display:block; margin:0"
                       >
                         Reset Password
                       </h1>
@@ -217,7 +218,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped >
 .v-input__icon--double .v-input__icon {
   margin-left: -4.25rem !important;
 }

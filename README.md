@@ -47,6 +47,11 @@ build: {
 
 2. Configurated auth nuxt module with test auth server (api/auth.js)
 
+3. Install Storybook
+    1. npx sb init
+    2. npm install @nuxtjs/storybook:2.0.0
+    3. npm i core-js@3 @babel/runtime-corejs3 --save-dev 
+
 
 
 
