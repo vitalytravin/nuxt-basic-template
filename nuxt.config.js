@@ -66,6 +66,7 @@ export default {
     'nuxt-material-design-icons',
     '@nuxtjs/auth',
     '@nuxtjs/toast',
+    'nuxt-i18n'
   ],
   /*
    ** Axios module configuration
@@ -77,6 +78,21 @@ export default {
    ** See https://content.nuxtjs.org/configuration
    */
   content: {},
+
+  i18n: {
+    defaultLocale: 'ru',
+    langDir: 'i18n/',
+    locales: [
+        { code: 'en', iso: 'en-US', file: 'en.js' },
+        { code: 'ru', iso: 'ru-RU', file: 'ru.js' }
+     ],
+    lazy: true,
+    //strategy: 'no_prefix',
+    vueI18n: {
+      fallbackLocale: 'ru',
+      
+    }
+  },
 
   auth: {
     redirect: {

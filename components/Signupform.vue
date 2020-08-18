@@ -14,12 +14,12 @@
                         class="text-center display-1 mb-10" style="display:block; margin:0"
                         :class="`${bgColor}--text`"
                       >
-                        Sign in
+                        {{ $t('auth.signIn') }}
                       </h1>
                       <v-text-field
                         id="username"
                         v-model="login"
-                        label="Username"
+                        :label="$t('auth.username')"
                         name="Username"
                         append-icon="person"
                         type="text"
@@ -28,7 +28,7 @@
                       <v-text-field
                         id="password"
                         v-model="password"
-                        label="Password"
+                        :label="$t('auth.password')"
                         name="Password"
                         append-icon="lock"
                         type="password"
@@ -40,12 +40,12 @@
                           :class="`${bgColor}--text`"
                           @click="step = 3"
                         >
-                          Forgot your password?
+                          {{ $t('auth.forgotYourPassword') }}
                         </a>
                       </div>
                       <div class="text-center mt-6">
                         <v-btn type="submit" large :color="bgColor" dark
-                          >Sign In</v-btn
+                          >{{ $t('auth.signIn') }}</v-btn
                         >
                       </div>
                     </v-form>
@@ -59,13 +59,13 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3" style="display:block; margin:0">No User?</h1>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">{{ $t('auth.noUser') }}</h1>
                       <h5 class="text-center overline mb-3">
-                        Please Sign Up to continue
+                        {{ $t('auth.pleaseSignUpToContinue') }}
                       </h5>
                     </v-card-text>
                     <div class="text-center mb-6">
-                      <v-btn dark outlined @click="step = 2">Sign Up</v-btn>
+                      <v-btn dark outlined @click="step = 2">{{ $t('auth.signUp') }}</v-btn>
                     </div>
                   </div>
                 </v-col>
@@ -82,11 +82,11 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3" style="display:block; margin:0">Already a user?</h1>
-                      <h5 class="text-center overline mb-3">Please Sign In</h5>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">{{ $t('auth.alreadyUser') }}</h1>
+                      <h5 class="text-center overline mb-3">{{ $t('auth.pleaseSignIn') }}</h5>
                     </v-card-text>
                     <div class="text-center mb-6">
-                      <v-btn dark outlined @click="step = 1">Sign In</v-btn>
+                      <v-btn dark outlined @click="step = 1">{{ $t('auth.signIn') }}</v-btn>
                     </div>
                   </div>
                 </v-col>
@@ -97,13 +97,13 @@
                       :class="`${bgColor}--text`"
                       style="display:block; margin:0"
                     >
-                      Sign Up
+                      {{ $t('auth.signUp') }}
                     </h1>
                     <v-form class="signup-form-form" @submit.prevent="$emit('onSignup',{username,email,password})">
                       <v-text-field
                         id="username"
                         v-model="username"
-                        label="Username"
+                        :label="$t('auth.username')"
                         name="username"
                         append-icon="person"
                         type="text"
@@ -111,7 +111,7 @@
                       <v-text-field
                         id="email"
                         v-model="email"
-                        label="eMail"
+                        label="e-Mail"
                         name="email"
                         append-icon="email"
                         type="email"
@@ -119,14 +119,14 @@
                       <v-text-field
                         id="password"
                         v-model="password"
-                        label="Password"
+                        :label="$t('auth.password')"
                         name="password"
                         append-icon="lock"
                         type="password"
                       />
                       <div class="text-center mt-6">
                         <v-btn type="submit" large :color="bgColor" dark>
-                          Sign Up</v-btn
+                          {{ $t('auth.signUp') }}</v-btn
                         >
                       </div>
                     </v-form>
@@ -145,11 +145,11 @@
                 >
                   <div>
                     <v-card-text :class="`${fgColor}--text`">
-                      <h1 class="text-center headline mb-3" style="display:block; margin:0">Already a user?</h1>
-                      <h5 class="text-center overline mb-3">Please Sign In</h5>
+                      <h1 class="text-center headline mb-3" style="display:block; margin:0">{{ $t('auth.alreadyUser') }}</h1>
+                      <h5 class="text-center overline mb-3">{{ $t('auth.pleaseSignIn') }}</h5>
                     </v-card-text>
                     <div class="text-center mb-6">
-                      <v-btn dark outlined @click="step = 1">Sign In</v-btn>
+                      <v-btn dark outlined @click="step = 1">{{ $t('auth.signIn') }}</v-btn>
                     </div>
                   </div>
                 </v-col>
@@ -161,7 +161,7 @@
                         :class="`${bgColor}--text`"
                         style="display:block; margin:0"
                       >
-                        Reset Password
+                        {{ $t('auth.resetPassword') }}
                       </h1>
                       <v-text-field
                         id="login"
@@ -175,7 +175,7 @@
                       />
                       <div class="text-center mt-6">
                         <v-btn large :color="bgColor" dark
-                          >Reset Password</v-btn
+                          >{{ $t('auth.resetPassword') }}</v-btn
                         >
                       </div>
                     </v-form>
@@ -205,7 +205,7 @@ export default {
     fgColor: {
       type: String,
       default: 'white'
-    }
+    },
   },
   data: () => ({
     step: 1,

@@ -37,6 +37,11 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <nuxt-link
+        v-for="locale in availableLocales"
+        :key="locale.code"
+        :to="switchLocalePath(locale.code)">{{ locale.code }}
+      </nuxt-link>
       <template v-if="$auth.loggedIn">
         <v-toolbar-title v-text="$auth.user.name" />
         <v-btn text @click.stop="$auth.logout()">Logout</v-btn>
@@ -101,5 +106,10 @@ export default {
       title: 'Base template',
     }
   },
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  } 
 }
 </script>
