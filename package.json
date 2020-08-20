@@ -36,6 +36,7 @@
     "@nuxtjs/vuetify": "^1.11.2",
     "@storybook/addon-actions": "^6.0.4",
     "@storybook/addon-essentials": "^6.0.4",
+    "@storybook/addon-knobs": "^6.0.13",
     "@storybook/addon-links": "^6.0.4",
     "@storybook/vue": "^6.0.4",
     "@vue/test-utils": "^1.0.3",
